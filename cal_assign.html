@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: aliceblue;
+    }
+
+    .calculator {
+      background-color: white;
+      border: 1px solid rgb(141, 141, 141);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 13px 16px rgba(113, 115, 119, 0.5);
+    }
+
+    .num-box {
+      width: 300px;
+      height: fit-content;
+      border: none;
+      padding: 25px;
+      margin: 10px;
+      background: transparent;
+      box-shadow: 0px 3px 15px rgba(85, 85, 85, 0.2);
+      border-radius: 9px;
+      font-size: xx-large;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    input {
+      border: none;
+      width: 60px;
+      height: 70px;
+      margin: 10px 15px;
+      border-radius: 20px;
+      background: transparent;
+      font-size: 25px;
+      box-shadow: 0px 3px 15px rgba(35, 35, 35, 0.2);
+    }
+
+    input:hover {
+      color: rgb(133, 133, 133);
+      font-style: italic;
+      transition: 0.5s;
+    }
+
+    .clear {
+      width: 300px;
+      margin-left: 10%;
+      color: salmon;
+    }
+
+    .equal {
+      background-color: coral;
+      color: aliceblue;
+    }
+
+    .header {
+      text-align: center;
+      font-size: large;
+      text-decoration: underline;
+      color: coral;
+    }
+  </style>
+  <div class="calculator">
+    <h1 class="header">Calculator</h1>
+    <input class="num-box" type="text" id="result" disabled />
+
+    <div>
+      <input type="button" value="7" onclick="display('7')" />
+      <input type="button" value="8" onclick="display('8')" />
+      <input type="button" value="9" onclick="display('9')" />
+      <input type="button" value="/" onclick="display('/')" />
+
+    </div>
+
+    <div>
+      <input type="button" value="4" onclick="display('4')" />
+      <input type="button" value="5" onclick="display('5')" />
+      <input type="button" value="6" onclick="display('6')" />
+      <input type="button" value="*" onclick="display('*')" />
+    </div>
+
+    <div>
+      <input type="button" value="1" onclick="display('1')" />
+      <input type="button" value="2" onclick="display('2')" />
+      <input type="button" value="3" onclick="display('3')" />
+      <input type="button" value="+" onclick="display('+')" />
+    </div>
+
+    <div>
+      <input type="button" value="." onclick="display('.')" />
+      <input type="button" value="0" onclick="display('0')" />
+      <input class="equal" type="button" value="=" onclick="calculate()" />
+      <input type="button" value="-" onclick="display('-')" />
+    </div>
+
+    <div>
+      <input class="clear" type="button" value="clear" onclick="clearScreen()"/>
+    </div>
+  </div>
+  <script>
+    function clearScreen() {
+      document.getElementById("result").value = "";
+    }
+
+    // This function display values
+    function display(value) {
+      document.getElementById("result").value += value;
+    }
+
+    // This function evaluates the expression and returns result
+    function calculate() {
+      var p = document.getElementById("result").value;
+      var q = eval(p);
+      document.getElementById("result").value = q;
+    }
+  </script>
+</body>
+
+</html>
